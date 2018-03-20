@@ -14,7 +14,9 @@ public class FirstProg {
         Point p2 = new Point();
 
         p2.x = 4;
-        p2.y = 6;
+        p2.y = 5;
+
+        System.out.println("Растояние между точками =" + distance(p1,p2));
 
     }
 
