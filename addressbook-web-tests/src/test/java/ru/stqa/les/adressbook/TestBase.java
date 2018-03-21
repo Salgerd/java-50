@@ -93,11 +93,8 @@ public class TestBase {
        wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
    }
 
-   protected void fillContactForm() {
-     fillContactForm(new ContactData("oleg", "ivanov", "Moscow", "89996663322", "test@test.ru"));
-  }
 
-   private void fillContactForm(ContactData contactData) {
+   protected void fillContactForm(ContactData contactData) {
        wd.findElement(By.name("firstname")).click();
        wd.findElement(By.name("firstname")).clear();
        wd.findElement(By.name("firstname")).sendKeys(contactData.getName());
