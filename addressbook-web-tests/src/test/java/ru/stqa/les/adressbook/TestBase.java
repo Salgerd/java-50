@@ -84,4 +84,38 @@ public class TestBase {
    protected void selectGroup() {
        wd.findElement(By.name("selected[]")).click();
    }
+
+   protected void returnToHomePage() {
+       wd.findElement(By.linkText("home page")).click();
+   }
+
+   protected void submitForm() {
+       wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
+   }
+
+   protected void fillContactForm() {
+     fillContactForm(new ContactData("oleg", "ivanov", "Moscow", "89996663322", "test@test.ru"));
+  }
+
+   private void fillContactForm(ContactData contactData) {
+       wd.findElement(By.name("firstname")).click();
+       wd.findElement(By.name("firstname")).clear();
+       wd.findElement(By.name("firstname")).sendKeys(contactData.getName());
+       wd.findElement(By.name("lastname")).click();
+       wd.findElement(By.name("lastname")).clear();
+       wd.findElement(By.name("lastname")).sendKeys(contactData.getLastname());
+       wd.findElement(By.name("address")).click();
+       wd.findElement(By.name("address")).clear();
+       wd.findElement(By.name("address")).sendKeys(contactData.getCity());
+       wd.findElement(By.name("home")).click();
+       wd.findElement(By.name("home")).clear();
+       wd.findElement(By.name("home")).sendKeys(contactData.getTelephone());
+       wd.findElement(By.name("email")).click();
+       wd.findElement(By.name("email")).clear();
+       wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
+   }
+
+   protected void gotoAddNewPage() {
+       wd.findElement(By.linkText("add new")).click();
+   }
 }
