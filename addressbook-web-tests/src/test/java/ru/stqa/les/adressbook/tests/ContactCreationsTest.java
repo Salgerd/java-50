@@ -1,11 +1,11 @@
-package ru.stqa.les.adressbook;
+package ru.stqa.les.adressbook.tests;
 
 
 import org.testng.annotations.Test;
+import ru.stqa.les.adressbook.model.ContactData;
 
 
-
-public class ContactCreationsTest extends TestBase{
+public class ContactCreationsTest extends TestBase {
 
     @Test
     public void testContactCreation() {

@@ -1,9 +1,9 @@
-package ru.stqa.les.adressbook;
+package ru.stqa.les.adressbook.tests;
 
 
 import org.testng.annotations.Test;
 
-public class GroupDeletionTest extends TestBase{
+public class GroupDeletionTest extends TestBase {
 
 
     @Test

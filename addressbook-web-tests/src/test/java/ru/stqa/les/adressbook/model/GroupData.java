@@ -1,4 +1,4 @@
-package ru.stqa.les.adressbook;
+package ru.stqa.les.adressbook.model;
 
 public class GroupData {
    private final String name;

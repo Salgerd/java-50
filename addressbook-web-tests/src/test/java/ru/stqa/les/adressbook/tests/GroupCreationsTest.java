@@ -1,8 +1,9 @@
-package ru.stqa.les.adressbook;
+package ru.stqa.les.adressbook.tests;
 
 import org.testng.annotations.Test;
+import ru.stqa.les.adressbook.model.GroupData;
 
-public class GroupCreationsTest extends TestBase{
+public class GroupCreationsTest extends TestBase {
 
    @Test
    public void testGroupCreation() {
