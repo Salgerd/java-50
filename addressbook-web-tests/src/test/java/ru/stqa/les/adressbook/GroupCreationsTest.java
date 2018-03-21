@@ -15,7 +15,7 @@ public class GroupCreationsTest {
 
    @BeforeMethod
    public void setUp() throws Exception {
-      wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true).setBinary("C:/Users/a.zelenskaya/AppData/Local/Mozilla Firefox/firefox.exe"));
+      wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true).setBinary("C:/Users/a.zelenskaya/Documents/Mozilla Firefox/firefox.exe"));
       wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
       wd.get("http://localhost/addressbook/");
       login("admin", "secret");
