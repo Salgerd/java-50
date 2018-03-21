@@ -7,7 +7,7 @@ import ru.stqa.les.adressbook.model.ContactData;
 /**
  * Created by a.zelenskaya on 21.03.2018.
  */
-public class ContactHelper extends HelperBase{
+public class ContactHelper extends HelperBase {
 
 
    public ContactHelper(FirefoxDriver wd) {
@@ -25,5 +25,22 @@ public class ContactHelper extends HelperBase{
       type(By.name("address"), contactData.getCity());
       type(By.name("home"), contactData.getTelephone());
       type(By.name("email"), contactData.getEmail());
+   }
+
+
+   public void selectContactModification() {
+      click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[7]/a/img"));
+   }
+
+   public void deleteSelectedContact() {
+      click(By.xpath("//div[@id='content']/form[2]/input[2]"));
+   }
+
+   public void submitContactModification() {
+      click(By.name("modifiy"));
+   }
+
+   public void updateSelectedContact() {
+      click(By.xpath("//div[@id='content']/form[1]/input[22]"));
    }
 }
