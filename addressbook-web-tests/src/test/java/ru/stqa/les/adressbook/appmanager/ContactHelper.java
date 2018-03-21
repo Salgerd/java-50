@@ -7,35 +7,23 @@ import ru.stqa.les.adressbook.model.ContactData;
 /**
  * Created by a.zelenskaya on 21.03.2018.
  */
-public class ContactHelper {
+public class ContactHelper extends HelperBase{
 
-
-   private FirefoxDriver wd;
 
    public ContactHelper(FirefoxDriver wd) {
 
-      this.wd = wd;
+      super(wd);
    }
 
    public void submitForm() {
-      wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
+      click(By.xpath("//div[@id='content']/form/input[21]"));
    }
 
    public void fillContactForm(ContactData contactData) {
-      wd.findElement(By.name("firstname")).click();
-      wd.findElement(By.name("firstname")).clear();
-      wd.findElement(By.name("firstname")).sendKeys(contactData.getName());
-      wd.findElement(By.name("lastname")).click();
-      wd.findElement(By.name("lastname")).clear();
-      wd.findElement(By.name("lastname")).sendKeys(contactData.getLastname());
-      wd.findElement(By.name("address")).click();
-      wd.findElement(By.name("address")).clear();
-      wd.findElement(By.name("address")).sendKeys(contactData.getCity());
-      wd.findElement(By.name("home")).click();
-      wd.findElement(By.name("home")).clear();
-      wd.findElement(By.name("home")).sendKeys(contactData.getTelephone());
-      wd.findElement(By.name("email")).click();
-      wd.findElement(By.name("email")).clear();
-      wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
+      type(By.name("firstname"), contactData.getName());
+      type(By.name("lastname"), contactData.getLastname());
+      type(By.name("address"), contactData.getCity());
+      type(By.name("home"), contactData.getTelephone());
+      type(By.name("email"), contactData.getEmail());
    }
 }
