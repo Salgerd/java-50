@@ -2,8 +2,12 @@ package ru.stqa.les.adressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.stqa.les.adressbook.model.GroupData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by a.zelenskaya on 21.03.2018.
@@ -62,5 +66,19 @@ public class GroupHelper extends HelperBase{
    public int getGroupCount() {
 
       return wd.findElements(By.name("selected[]")).size();
+   }
+
+   public List<GroupData> getGroupList() {
+
+      List<GroupData> groups = new ArrayList<GroupData>();
+      List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
+      for (WebElement element : elements) {
+         String name = element.getText();
+         String header = element.getText();
+         String footer = element.getText();
+         GroupData group = new GroupData(name, header, footer);
+         groups.add(group);
+      }
+      return groups;
    }
 }
