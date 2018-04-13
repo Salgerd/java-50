@@ -4,7 +4,6 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.les.adressbook.model.ContactData;
-import ru.stqa.les.adressbook.model.GroupData;
 
 import java.util.Comparator;
 import java.util.List;
@@ -17,22 +16,23 @@ public class ContactModificationTest extends TestBase {
 
    @BeforeMethod
    public void ensurePreconditions() {
-      app.getNavigationHelper().gotoHomePage();
-      if (! app.getContactHelper().isThereAContact()) {
-         app.getContactHelper().createContact(new ContactData("oleg", "ivanov", "Moscow", "89996663322", "test@test.ru"));
+      app.goTo().gotoHomePage();
+      if (app.contact().list().size() == 0) {
+         app.contact().create(new ContactData("oleg", "ivanov", "Moscow", "89996663322", "test@test.ru"));
       }
    }
 
    @Test
    public void testContactModification() {
 
-      List<ContactData> before = app.getContactHelper().getContactList();
+      List<ContactData> before = app.contact().list();
+      int index = before.size() - 1;
       ContactData contact = new ContactData("oleg", "ivanov", "Moscow", "89996663322", "test@test.ru");
-      app.getContactHelper().modifyContact(contact);
-      List<ContactData> after = app.getContactHelper().getContactList();
+      app.contact().modify(contact);
+      List<ContactData> after = app.contact().list();
       Assert.assertEquals(after.size(), before.size());
 
-      before.remove(before.size() - 1);
+      before.remove(index);
       before.add(contact);
       Comparator<? super ContactData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
       before.sort(byId);
