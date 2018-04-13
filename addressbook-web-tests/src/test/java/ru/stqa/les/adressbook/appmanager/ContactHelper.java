@@ -1,12 +1,12 @@
 package ru.stqa.les.adressbook.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
+import org.openqa.selenium.WebElement;
 import ru.stqa.les.adressbook.model.ContactData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by a.zelenskaya on 21.03.2018.
@@ -82,9 +82,17 @@ public class ContactHelper extends HelperBase {
       click(By.linkText("add new"));
    }
 
-   public int getContactCount() {
 
-      return wd.findElements(By.name("selected[]")).size();
+   public List<ContactData> getContactList() {
+
+      List<ContactData> contacts = new ArrayList<ContactData>();
+      List<WebElement> elements = wd.findElements(By.cssSelector("tr[name='entry']"));
+      for (WebElement element : elements) {
+         String name = element.findElement(By.cssSelector("td:nth-child(3)")).getAttribute("textContent");
+         String lastname = element.findElement(By.cssSelector("td:nth-child(2)")).getAttribute("textContent");
+         ContactData contact = new ContactData(name, lastname, null, null, null);
+         contacts.add(contact);
+      }
+      return contacts;
    }
-
 }
