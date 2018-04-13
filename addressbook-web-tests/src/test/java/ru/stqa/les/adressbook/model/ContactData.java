@@ -1,38 +1,15 @@
 package ru.stqa.les.adressbook.model;
 
 public class ContactData {
-   private int id;
-   private final String name;
-   private final String lastname;
-   private final String city;
-   private final String telephone;
-   private final String email;
-
-
-   public ContactData( String name, String lastname, String city, String telephone, String email) {
-      this.id = Integer.MAX_VALUE;
-      this.name = name;
-      this.lastname = lastname;
-      this.city = city;
-      this.telephone = telephone;
-      this.email = email;
-
-   }
-
-   public ContactData(int id, String name, String lastname, String city, String telephone, String email) {
-      this.id = id;
-      this.name = name;
-      this.lastname = lastname;
-      this.city = city;
-      this.telephone = telephone;
-      this.email = email;
-
-   }
+   private int id = Integer.MAX_VALUE;
+   private String name;
+   private String lastname;
+   private String city;
+   private String telephone;
+   private String email;
 
 
    public int getId() { return id;  }
-
-   public void setId(int id) { this.id = id;    }
 
    public String getName() {
       return name;
@@ -54,6 +31,36 @@ public class ContactData {
       return email;
    }
 
+   public ContactData withId(int id) {
+
+      this.id = id;
+      return this;
+   }
+
+   public ContactData withName(String name) {
+      this.name = name;
+      return this;
+   }
+
+   public ContactData withLastname(String lastname) {
+      this.lastname = lastname;
+      return this;
+   }
+
+   public ContactData withCity(String city) {
+      this.city = city;
+      return this;
+   }
+
+   public ContactData withTelephone(String telephone) {
+      this.telephone = telephone;
+      return this;
+   }
+
+   public ContactData withEmail(String email) {
+      this.email = email;
+      return this;
+   }
 
    @Override
    public boolean equals(Object o) {
