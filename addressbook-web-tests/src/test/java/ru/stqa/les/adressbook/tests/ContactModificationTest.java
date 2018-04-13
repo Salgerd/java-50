@@ -1,6 +1,7 @@
 package ru.stqa.les.adressbook.tests;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.les.adressbook.model.ContactData;
 import ru.stqa.les.adressbook.model.GroupData;
@@ -14,20 +15,20 @@ import java.util.List;
  */
 public class ContactModificationTest extends TestBase {
 
-   @Test
-   public void testContactModification() {
-
+   @BeforeMethod
+   public void ensurePreconditions() {
       app.getNavigationHelper().gotoHomePage();
       if (! app.getContactHelper().isThereAContact()) {
          app.getContactHelper().createContact(new ContactData("oleg", "ivanov", "Moscow", "89996663322", "test@test.ru"));
       }
+   }
+
+   @Test
+   public void testContactModification() {
+
       List<ContactData> before = app.getContactHelper().getContactList();
-      app.getContactHelper().selectContactModification();
-      app.getContactHelper().submitContactModification();
       ContactData contact = new ContactData("oleg", "ivanov", "Moscow", "89996663322", "test@test.ru");
-      app.getContactHelper().fillContactForm(contact);
-      app.getContactHelper().updateSelectedContact();
-      app.getContactHelper().returnToHomePage();
+      app.getContactHelper().modifyContact(contact);
       List<ContactData> after = app.getContactHelper().getContactList();
       Assert.assertEquals(after.size(), before.size());
 
@@ -39,4 +40,5 @@ public class ContactModificationTest extends TestBase {
       Assert.assertEquals(before, after);
       
    }
+
 }
