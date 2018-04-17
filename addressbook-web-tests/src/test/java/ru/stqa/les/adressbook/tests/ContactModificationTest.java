@@ -1,5 +1,6 @@
 package ru.stqa.les.adressbook.tests;
 
+<<<<<<< HEAD
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -7,6 +8,10 @@ import ru.stqa.les.adressbook.model.ContactData;
 
 import java.util.Comparator;
 import java.util.List;
+=======
+import org.testng.annotations.Test;
+import ru.stqa.les.adressbook.model.ContactData;
+>>>>>>> parent of 029e6ef... Реализация проверок путем сравнения списков (з №9)
 
 
 /**
@@ -27,6 +32,7 @@ public class ContactModificationTest extends TestBase {
    @Test
    public void testContactModification() {
 
+<<<<<<< HEAD
       List<ContactData> before = app.contact().list();
       int index = before.size() - 1;
       ContactData contact = new ContactData()
@@ -42,6 +48,17 @@ public class ContactModificationTest extends TestBase {
       before.sort(byId);
       after.sort(byId);
       Assert.assertEquals(before, after);
+=======
+      app.getNavigationHelper().gotoHomePage();
+      if (! app.getContactHelper().isThereAContact()) {
+         app.getContactHelper().createContact(new ContactData("oleg", "ivanov", "Moscow", "89996663322", "test@test.ru"));
+      }
+      app.getContactHelper().selectContactModification();
+      app.getContactHelper().submitContactModification();
+      app.getContactHelper().fillContactForm(new ContactData("александр", "ivanov", "Moscow", "89996663322", "test@test.ru"));
+      app.getContactHelper().updateSelectedContact();
+      app.getContactHelper().returnToHomePage();
+>>>>>>> parent of 029e6ef... Реализация проверок путем сравнения списков (з №9)
       
    }
 
