@@ -63,12 +63,12 @@ public class ContactHelper extends HelperBase {
       returnToHomePage();
    }
 
-  /* public void modify(int index, ContactData contact) {
+   public void modifyContact(int index, ContactData contact) {
       selectContactModification(index);
       fillContactForm(contact);
       updateSelectedContact();
       returnToHomePage();
-   }*/
+   }
 
    public void delete(int index) {
       selectContactModification(index);

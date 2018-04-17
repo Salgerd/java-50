@@ -59,7 +59,7 @@ public class GroupHelper extends HelperBase{
       returnToGroupPage();
    }
 
-   public void modify(int index, GroupData group) {
+   public void modifyGroup(int index, GroupData group) {
       selectGroup(index);
       initGroupModification();
       fillGroupForm(group);

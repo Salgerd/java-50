@@ -32,10 +32,7 @@ public class ContactModificationTest extends TestBase {
       ContactData contact = new ContactData()
               .withName("oleg").withLastname("ivanov").withCity("Moscow")
               .withTelephone("89996663322").withEmail("test@test.ru");
-      app.contact().selectContactModification(index);
-      app.contact().fillContactForm(contact);
-      app.contact().updateSelectedContact();
-      app.contact().returnToHomePage();
+      app.contact().modifyContact(index, contact);
       List<ContactData> after = app.contact().list();
       Assert.assertEquals(after.size(), before.size());
 
