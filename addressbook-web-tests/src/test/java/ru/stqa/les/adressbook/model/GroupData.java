@@ -8,23 +8,6 @@ public class GroupData {
    private String footer;
 
 
-<<<<<<< HEAD
-=======
-   public GroupData(String name, String header, String footer) {
-      this.id = 0;
-      this.name = name;
-      this.header = header;
-      this.footer = footer;
-   }
-
-   public GroupData(int id, String name, String header, String footer) {
-      this.id = id;
-      this.name = name;
-      this.header = header;
-      this.footer = footer;
-   }
-
->>>>>>> parent of 029e6ef... Реализация проверок путем сравнения списков (з №9)
    public int getId() {
       return id;
    }
@@ -68,15 +51,12 @@ public class GroupData {
 
       GroupData groupData = (GroupData) o;
 
-      if (id != groupData.id) return false;
       return name != null ? name.equals(groupData.name) : groupData.name == null;
    }
 
    @Override
    public int hashCode() {
-      int result = id;
-      result = 31 * result + (name != null ? name.hashCode() : 0);
-      return result;
+      return name != null ? name.hashCode() : 0;
    }
 
    @Override

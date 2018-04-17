@@ -1,12 +1,12 @@
 package ru.stqa.les.adressbook.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
+import org.openqa.selenium.WebElement;
 import ru.stqa.les.adressbook.model.ContactData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by a.zelenskaya on 21.03.2018.
@@ -96,9 +96,7 @@ public class ContactHelper extends HelperBase {
       click(By.linkText("add new"));
    }
 
-   public int getContactCount() {
 
-<<<<<<< HEAD
    public List<ContactData> list() {
 
       List<ContactData> contacts = new ArrayList<ContactData>();
@@ -109,9 +107,5 @@ public class ContactHelper extends HelperBase {
          contacts.add(new ContactData().withName(name).withLastname(lastname));
       }
       return contacts;
-=======
-      return wd.findElements(By.name("selected[]")).size();
->>>>>>> parent of 029e6ef... Реализация проверок путем сравнения списков (з №9)
    }
-
 }

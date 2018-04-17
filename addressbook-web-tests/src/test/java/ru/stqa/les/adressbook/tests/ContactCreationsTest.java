@@ -1,15 +1,18 @@
 package ru.stqa.les.adressbook.tests;
 
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.les.adressbook.model.ContactData;
+
+import java.util.Comparator;
+import java.util.List;
 
 
 public class ContactCreationsTest extends TestBase {
 
     @Test
     public void testContactCreation() {
-<<<<<<< HEAD
 
        List<ContactData> before = app.contact().list();
        ContactData contact = new ContactData()
@@ -24,9 +27,6 @@ public class ContactCreationsTest extends TestBase {
        before.sort(byId);
        after.sort(byId);
        Assert.assertEquals(before, after);
-=======
-       app.getContactHelper().createContact(new ContactData("oleg", "ivanov", "Moscow", "89996663322", "test@test.ru"));
->>>>>>> parent of 029e6ef... Реализация проверок путем сравнения списков (з №9)
     }
 
 

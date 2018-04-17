@@ -5,11 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.les.adressbook.model.GroupData;
 
-<<<<<<< HEAD
 import java.util.Comparator;
-=======
-import java.util.HashSet;
->>>>>>> parent of 029e6ef... Реализация проверок путем сравнения списков (з №9)
 import java.util.List;
 
 /**
@@ -28,32 +24,20 @@ public class GroupModificationTest extends TestBase {
    @Test
    public void testGroupModification () {
 
-<<<<<<< HEAD
       List<GroupData> before = app.group().list();
       int index = before.size() - 1;
       GroupData group = new GroupData()
               .withId(before.get(index).getId()).withName("testgroup2").withHeader("test1").withFooter("test2");
       app.group().modify(group);
       List<GroupData> after = app.group().list();
-=======
-      app.getNavigationHelper().gotoGroupPage();
-      if (! app.getGroupHelper().isThereAGroup()) {
-         app.getGroupHelper().createGroup(new GroupData("testgroup1", "null", "test2"));
-      }
-      List<GroupData> before = app.getGroupHelper().getGroupList();
-      app.getGroupHelper().selectGroup();
-      app.getGroupHelper().initGroupModification();
-      GroupData group = new GroupData(before.get(before.size() - 1).getId(),"testgroup1", "test1", "test2");
-      app.getGroupHelper().fillGroupForm(group);
-      app.getGroupHelper().submitGroupModification();
-      app.getGroupHelper().returnToGroupPage();
-      List<GroupData> after = app.getGroupHelper().getGroupList();
->>>>>>> parent of 029e6ef... Реализация проверок путем сравнения списков (з №9)
       Assert.assertEquals(after.size(), before.size());
 
       before.remove(index);
       before.add(group);
-      Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
+      Comparator<? super GroupData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
+      before.sort(byId);
+      after.sort(byId);
+      Assert.assertEquals(before, after);
 
    }
 

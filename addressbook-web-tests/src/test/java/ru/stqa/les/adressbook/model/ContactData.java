@@ -1,7 +1,6 @@
 package ru.stqa.les.adressbook.model;
 
 public class ContactData {
-<<<<<<< HEAD
    private int id = Integer.MAX_VALUE;
    private String name;
    private String lastname;
@@ -11,23 +10,6 @@ public class ContactData {
 
 
    public int getId() { return id;  }
-=======
-   private final String name;
-   private final String lastname;
-   private final String city;
-   private final String telephone;
-   private final String email;
-
-
-   public ContactData(String name, String lastname, String city, String telephone, String email) {
-      this.name = name;
-      this.lastname = lastname;
-      this.city = city;
-      this.telephone = telephone;
-      this.email = email;
-
-   }
->>>>>>> parent of 029e6ef... Реализация проверок путем сравнения списков (з №9)
 
    public String getName() {
       return name;
@@ -49,7 +31,6 @@ public class ContactData {
       return email;
    }
 
-<<<<<<< HEAD
    public ContactData withId(int id) {
 
       this.id = id;
@@ -107,6 +88,4 @@ public class ContactData {
               ", lastname='" + lastname + '\'' +
               '}';
    }
-=======
->>>>>>> parent of 029e6ef... Реализация проверок путем сравнения списков (з №9)
 }
