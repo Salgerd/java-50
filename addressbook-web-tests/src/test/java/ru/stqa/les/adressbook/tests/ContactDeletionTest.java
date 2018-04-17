@@ -29,7 +29,7 @@ public class ContactDeletionTest extends TestBase {
 
       List<ContactData> before = app.contact().list();
       int index = before.size() - 1;
-      app.contact().delete();
+      app.contact().delete(index);
       List<ContactData> after = app.contact().list();
       Assert.assertEquals(after.size(), before.size() - 1);
 

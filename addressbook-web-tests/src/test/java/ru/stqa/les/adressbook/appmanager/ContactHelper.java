@@ -8,6 +8,7 @@ import ru.stqa.les.adressbook.model.ContactData;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * Created by a.zelenskaya on 21.03.2018.
  */
@@ -38,17 +39,17 @@ public class ContactHelper extends HelperBase {
    }
 
 
-   public void selectContactModification() {
-      click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[7]/a/img"));
+   public void selectContactModification(int index) {
+      wd.findElements(By.name("selected[]")).get(index).click();
+      click(By.xpath("//table[@id='maintable']/tbody/tr[8]/td[8]/a/img"));
    }
+
+
 
    public void deleteSelectedContact() {
       click(By.xpath("//div[@id='content']/form[2]/input[2]"));
    }
 
-   public void submitContactModification() {
-      click(By.name("modifiy"));
-   }
 
    public void updateSelectedContact() {
       click(By.xpath("//div[@id='content']/form[1]/input[22]"));
@@ -62,17 +63,15 @@ public class ContactHelper extends HelperBase {
       returnToHomePage();
    }
 
-   public void modify(ContactData contact) {
-      selectContactModification();
-      submitContactModification();
+  /* public void modify(int index, ContactData contact) {
+      selectContactModification(index);
       fillContactForm(contact);
       updateSelectedContact();
       returnToHomePage();
-   }
+   }*/
 
-   public void delete() {
-      selectContactModification();
-      submitContactModification();
+   public void delete(int index) {
+      selectContactModification(index);
       deleteSelectedContact();
    }
 
