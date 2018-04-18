@@ -5,8 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ru.stqa.les.adressbook.model.ContactData;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 /**
@@ -39,11 +40,10 @@ public class ContactHelper extends HelperBase {
    }
 
 
-   public void selectContactModification(int index) {
-      wd.findElements(By.name("selected[]")).get(index).click();
-      click(By.xpath("//table[@id='maintable']/tbody/tr[8]/td[8]/a/img"));
-   }
+   public void selectContactModificationById(int id) {
+      wd.findElement(By.cssSelector("input[id='" + id + "']")).click();
 
+   }
 
 
    public void deleteSelectedContact() {
@@ -63,15 +63,16 @@ public class ContactHelper extends HelperBase {
       returnToHomePage();
    }
 
-   public void modifyContact(int index, ContactData contact) {
-      selectContactModification(index);
+   public void modifyContact(ContactData contact) {
+      selectContactModificationById(contact.getId());
       fillContactForm(contact);
       updateSelectedContact();
       returnToHomePage();
    }
 
-   public void delete(int index) {
-      selectContactModification(index);
+
+   public void delete(ContactData contact) {
+      selectContactModificationById(contact.getId());
       deleteSelectedContact();
    }
 
@@ -86,6 +87,7 @@ public class ContactHelper extends HelperBase {
       return isElementPresent(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[7]/a/img"));
    }
 
+
    public void gotoAddNewPage() {
       if (isElementPresent(By.tagName("h1"))
               && wd.findElement(By.tagName("h1")).getText().equals("Edit / add address book entry")
@@ -95,15 +97,15 @@ public class ContactHelper extends HelperBase {
       click(By.linkText("add new"));
    }
 
+   public Set<ContactData> all() {
 
-   public List<ContactData> list() {
-
-      List<ContactData> contacts = new ArrayList<ContactData>();
+      Set<ContactData> contacts = new HashSet<ContactData>();
       List<WebElement> elements = wd.findElements(By.cssSelector("tr[name='entry']"));
       for (WebElement element : elements) {
+         int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
          String name = element.findElement(By.cssSelector("td:nth-child(3)")).getAttribute("textContent");
          String lastname = element.findElement(By.cssSelector("td:nth-child(2)")).getAttribute("textContent");
-         contacts.add(new ContactData().withName(name).withLastname(lastname));
+         contacts.add(new ContactData().withId(id).withName(name).withLastname(lastname));
       }
       return contacts;
    }
