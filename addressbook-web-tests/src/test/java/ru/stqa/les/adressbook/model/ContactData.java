@@ -8,14 +8,15 @@ public class ContactData {
    private String homephone;
    private String mobilephone;
    private String workphone;
-   private String email;
+   private String email1;
+   private String email2;
+   private String email3;
+   private String address;
+   private String address2;
    private String allPhones;
-<<<<<<< HEAD
    private String allEmails;
    private String allAddress;
 
-=======
->>>>>>> parent of e93cc95... Задание №11: Реализовать тест для проверки информации о контактах на главной странице
 
 
    public int getId() { return id;  }
@@ -44,13 +45,28 @@ public class ContactData {
       return workphone;
    }
 
-   public String getEmail() {
-      return email;
+   public String getEmail1() {
+      return email1;
+   }
+
+   public String getEmail2() {
+      return email2;
+   }
+
+   public String getEmail3() {
+      return email3;
+   }
+
+   public String getAddress() {
+      return address;
+   }
+
+   public String getAddress2() {
+      return address2;
    }
 
    public String getAllPhones() { return allPhones;   }
 
-<<<<<<< HEAD
    public String getAllEmails() { return allEmails;   }
 
    public String getAllAddress() { return allAddress;   }
@@ -65,8 +81,6 @@ public class ContactData {
       return this;
       }
 
-=======
->>>>>>> parent of e93cc95... Задание №11: Реализовать тест для проверки информации о контактах на главной странице
    public ContactData withAllPhones(String allPhones) {
 
       this.allPhones = allPhones;
@@ -109,8 +123,28 @@ public class ContactData {
       return this;
    }
 
-   public ContactData withEmail(String email) {
-      this.email = email;
+   public ContactData withEmail1(String email1) {
+      this.email1 = email1;
+      return this;
+   }
+
+   public ContactData withEmail2(String email2) {
+      this.email2 = email2;
+      return this;
+   }
+
+   public ContactData withEmail3(String email3) {
+      this.email3 = email3;
+      return this;
+   }
+
+   public ContactData withAddress(String address) {
+      this.address = address;
+      return this;
+   }
+
+   public ContactData withAddress2(String address2) {
+      this.address2 = address2;
       return this;
    }
 
