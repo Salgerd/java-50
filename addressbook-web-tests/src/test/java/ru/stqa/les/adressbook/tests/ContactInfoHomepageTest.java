@@ -11,9 +11,9 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 /**
- * Created by a.zelenskaya on 18.04.2018.
+ * Created by a.zelenskaya on 20.04.2018.
  */
-public class ContactPhoneTest extends TestBase {
+public class ContactInfoHomepageTest extends TestBase {
 
    @BeforeMethod
    public void ensurePreconditions() {
@@ -26,22 +26,43 @@ public class ContactPhoneTest extends TestBase {
                  .withAddress("address1").withAddress2("address2"));
       }
    }
+
    @Test
-   public void testContactPhone() {
+   public void testContactInfoHomePage() {
+
       ContactData contact = app.contact().all().iterator().next();
       ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
 
+      assertThat(contact.getAllAddress(), equalTo(cleanedAddress(contactInfoFromEditForm.getAddress())));
+      assertThat(contact.getAllEmails(), equalTo(mergeEmails(contactInfoFromEditForm)));
       assertThat(contact.getAllPhones(), equalTo(mergePhones(contactInfoFromEditForm)));
-   }
 
+   }
    private String mergePhones(ContactData contact) {
       return Arrays.asList(contact.getHomePhone(), contact.getMobilePhone(), contact.getWorkPhone())
-              .stream().filter((s) -> ! s.equals(""))
+              .stream().filter((s) -> !s.equals(""))
               .map(ContactPhoneTest::cleaned)
               .collect(Collectors.joining("\n"));
    }
 
-   public static String cleaned(String phone) {
-      return phone.replaceAll("\\s", "").replaceAll("[-()]","");
+   private String mergeEmails(ContactData contact) {
+      return Arrays.asList(contact.getEmail1(), contact.getEmail2(), contact.getEmail3())
+              .stream().filter((s) -> !s.equals(""))
+              .collect(Collectors.joining("\n"));
    }
+
+   public static String cleanedAddress(String field) {
+      return field.replaceAll("^\\s+|\\s+$", "")
+              .replaceAll(" +\\n", "\n")
+              .replaceAll("\\n +", "\n")
+              .replaceAll("\\s{2,}", " ");
+   }
+
+   public static String cleaned(String field) {
+
+      return field.replaceAll("\\s", "").replaceAll("[-()]", "");
+   }
+
 }
+
+
