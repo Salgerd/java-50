@@ -37,12 +37,15 @@ public class ContactHelper extends HelperBase {
       type(By.name("email3"), contactData.getEmail3());
       type(By.name("address"), contactData.getAddress());
       type(By.name("address2"), contactData.getAddress2());
+<<<<<<< HEAD
       attach(By.name("photo"), contactData.getPhoto());
 =======
       type(By.name("email"), contactData.getEmail());
 >>>>>>> parent of e93cc95... Задание №11: Реализовать тест для проверки информации о контактах на главной странице
+=======
+>>>>>>> parent of ed34bf8... 6.1 и 6.2 Прописан путь к файлу и создание генератора данных для групп
 
-      /*if (creation) {
+     /* if (creation) {
          new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
       } else {
          Assert.assertFalse(isElementPresent(By.name("new_group")));
