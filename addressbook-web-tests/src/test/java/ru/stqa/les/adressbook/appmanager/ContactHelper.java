@@ -39,13 +39,13 @@ public class ContactHelper extends HelperBase {
    }
 
 
-   
+
    public void selectContactModificationById(int id) {
       WebElement checkbox = wd.findElement(By.cssSelector(String.format("input[value='%s']", id)));
       WebElement row = checkbox.findElement(By.xpath("./../.."));
       List<WebElement> cells = row.findElements(By.tagName("td"));
       cells.get(7).findElement(By.tagName("a")).click();
-      click(By.xpath(String.format("//input[@value='%s']/../../td[8]/a", id)));
+     // click(By.xpath(String.format("//input[@value='%s']/../../td[8]/a", id)));
    }
 
 
@@ -63,7 +63,7 @@ public class ContactHelper extends HelperBase {
       gotoAddNewPage();
       fillContactForm(contact);
       submitForm();
-      contactCache = null;
+     // contactCache = null;
       returnToHomePage();
    }
 
@@ -71,7 +71,7 @@ public class ContactHelper extends HelperBase {
       selectContactModificationById(contact.getId());
       fillContactForm(contact);
       updateSelectedContact();
-      contactCache = null;
+     // contactCache = null;
       returnToHomePage();
    }
 
@@ -79,7 +79,7 @@ public class ContactHelper extends HelperBase {
    public void delete(ContactData contact) {
       selectContactModificationById(contact.getId());
       deleteSelectedContact();
-      contactCache = null;
+     // contactCache = null;
    }
 
    public void returnToHomePage() {
@@ -107,34 +107,38 @@ public class ContactHelper extends HelperBase {
       click(By.linkText("add new"));
    }
 
-   private Contacts contactCache = null;
+   //private Contacts contactCache = null;
 
    public Contacts all() {
-      if (contactCache != null) {
+    /*  if (contactCache != null) {
          return new Contacts(contactCache);
-      }
+      }*/
 
-      contactCache = new Contacts();
-      List<WebElement> elements = wd.findElements(By.cssSelector("tr[name='entry']"));
-      for (WebElement element : elements) {
-         int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-         String name = element.findElement(By.cssSelector("td:nth-child(3)")).getAttribute("textContent");
-         String lastname = element.findElement(By.cssSelector("td:nth-child(2)")).getAttribute("textContent");
-         contactCache.add(new ContactData().withId(id).withName(name).withLastname(lastname));
+      Contacts contacts = new Contacts();
+      List<WebElement> rows = wd.findElements(By.cssSelector("tr[name='entry']"));
+      for (WebElement row : rows) {
+         List<WebElement> cells = row.findElements(By.tagName("td"));
+         int id = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("value"));
+         String name = cells.get(1).getText();
+         String lastname = cells.get(2).getText();
+         String[] phones = cells.get(5).getText().split("\n");
+         contacts.add(new ContactData().withId(id).withName(name).withLastname(lastname).
+                 withHomePhone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2]));
       }
-      return new Contacts(contactCache);
+      return contacts;
    }
+
+
 
    public ContactData infoFromEditForm(ContactData contact) {
       selectContactModificationById(contact.getId());
-      String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
+      String name = wd.findElement(By.name("firstname")).getAttribute("value");
       String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
       String homephone = wd.findElement(By.name("home")).getAttribute("value");
       String mobilephone = wd.findElement(By.name("mobile")).getAttribute("value");
       String workphone = wd.findElement(By.name("work")).getAttribute("value");
-
       wd.navigate().back();
-      return new ContactData().withId(contact.getId()).withName(firstname).withLastname(lastname)
+      return new ContactData().withId(contact.getId()).withName(name).withLastname(lastname)
               .withHomePhone(homephone).withMobilePhone(mobilephone).withWorkPhone(workphone);
    }
 

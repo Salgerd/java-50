@@ -32,7 +32,7 @@ public class ApplicationManager {
    public void init() {
 
       if (Objects.equals(browser, BrowserType.FIREFOX)) {
-         wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true).setBinary("C:/Users/a.zelenskaya/Documents/Mozilla Firefox/firefox.exe"));
+         wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true).setBinary("C:/Users/a.zelenskaya/Documents/firefox.exe"));
       } else if (Objects.equals(browser, BrowserType.CHROME)) {
          wd = new ChromeDriver();
       } else if (Objects.equals(browser, BrowserType.IE)) {
