@@ -9,6 +9,7 @@ public class ContactData {
    private String mobilephone;
    private String workphone;
    private String email;
+   private String allPhones;
 
 
    public int getId() { return id;  }
@@ -39,6 +40,14 @@ public class ContactData {
 
    public String getEmail() {
       return email;
+   }
+
+   public String getAllPhones() { return allPhones;   }
+
+   public ContactData withAllPhones(String allPhones) {
+
+      this.allPhones = allPhones;
+      return this;
    }
 
    public ContactData withId(int id) {
@@ -82,6 +91,7 @@ public class ContactData {
       return this;
    }
 
+
    @Override
    public boolean equals(Object o) {
       if (this == o) return true;
@@ -110,4 +120,6 @@ public class ContactData {
               ", lastname='" + lastname + '\'' +
               '}';
    }
+
+
 }
