@@ -1,0 +1,132 @@
+<list>
+  <contact>
+    <name>oleg 0</name>
+    <lastname>ivanov 0</lastname>
+    <city>Moscow 0</city>
+    <homephone>89996663322 0</homephone>
+    <mobilephone>89996663323 0</mobilephone>
+    <workphone>89996663324 0</workphone>
+    <email1>test@test.ru 0</email1>
+    <email2>test2@test.ru 0</email2>
+    <email3>test3@test.ru 0</email3>
+    <address>address1 0</address>
+    <address2>address2 0</address2>
+  </contact>
+  <contact>
+    <name>oleg 1</name>
+    <lastname>ivanov 1</lastname>
+    <city>Moscow 1</city>
+    <homephone>89996663322 1</homephone>
+    <mobilephone>89996663323 1</mobilephone>
+    <workphone>89996663324 1</workphone>
+    <email1>test@test.ru 1</email1>
+    <email2>test2@test.ru 1</email2>
+    <email3>test3@test.ru 1</email3>
+    <address>address1 1</address>
+    <address2>address2 1</address2>
+  </contact>
+  <contact>
+    <name>oleg 2</name>
+    <lastname>ivanov 2</lastname>
+    <city>Moscow 2</city>
+    <homephone>89996663322 2</homephone>
+    <mobilephone>89996663323 2</mobilephone>
+    <workphone>89996663324 2</workphone>
+    <email1>test@test.ru 2</email1>
+    <email2>test2@test.ru 2</email2>
+    <email3>test3@test.ru 2</email3>
+    <address>address1 2</address>
+    <address2>address2 2</address2>
+  </contact>
+  <contact>
+    <name>oleg 3</name>
+    <lastname>ivanov 3</lastname>
+    <city>Moscow 3</city>
+    <homephone>89996663322 3</homephone>
+    <mobilephone>89996663323 3</mobilephone>
+    <workphone>89996663324 3</workphone>
+    <email1>test@test.ru 3</email1>
+    <email2>test2@test.ru 3</email2>
+    <email3>test3@test.ru 3</email3>
+    <address>address1 3</address>
+    <address2>address2 3</address2>
+  </contact>
+  <contact>
+    <name>oleg 4</name>
+    <lastname>ivanov 4</lastname>
+    <city>Moscow 4</city>
+    <homephone>89996663322 4</homephone>
+    <mobilephone>89996663323 4</mobilephone>
+    <workphone>89996663324 4</workphone>
+    <email1>test@test.ru 4</email1>
+    <email2>test2@test.ru 4</email2>
+    <email3>test3@test.ru 4</email3>
+    <address>address1 4</address>
+    <address2>address2 4</address2>
+  </contact>
+  <contact>
+    <name>oleg 5</name>
+    <lastname>ivanov 5</lastname>
+    <city>Moscow 5</city>
+    <homephone>89996663322 5</homephone>
+    <mobilephone>89996663323 5</mobilephone>
+    <workphone>89996663324 5</workphone>
+    <email1>test@test.ru 5</email1>
+    <email2>test2@test.ru 5</email2>
+    <email3>test3@test.ru 5</email3>
+    <address>address1 5</address>
+    <address2>address2 5</address2>
+  </contact>
+  <contact>
+    <name>oleg 6</name>
+    <lastname>ivanov 6</lastname>
+    <city>Moscow 6</city>
+    <homephone>89996663322 6</homephone>
+    <mobilephone>89996663323 6</mobilephone>
+    <workphone>89996663324 6</workphone>
+    <email1>test@test.ru 6</email1>
+    <email2>test2@test.ru 6</email2>
+    <email3>test3@test.ru 6</email3>
+    <address>address1 6</address>
+    <address2>address2 6</address2>
+  </contact>
+  <contact>
+    <name>oleg 7</name>
+    <lastname>ivanov 7</lastname>
+    <city>Moscow 7</city>
+    <homephone>89996663322 7</homephone>
+    <mobilephone>89996663323 7</mobilephone>
+    <workphone>89996663324 7</workphone>
+    <email1>test@test.ru 7</email1>
+    <email2>test2@test.ru 7</email2>
+    <email3>test3@test.ru 7</email3>
+    <address>address1 7</address>
+    <address2>address2 7</address2>
+  </contact>
+  <contact>
+    <name>oleg 8</name>
+    <lastname>ivanov 8</lastname>
+    <city>Moscow 8</city>
+    <homephone>89996663322 8</homephone>
+    <mobilephone>89996663323 8</mobilephone>
+    <workphone>89996663324 8</workphone>
+    <email1>test@test.ru 8</email1>
+    <email2>test2@test.ru 8</email2>
+    <email3>test3@test.ru 8</email3>
+    <address>address1 8</address>
+    <address2>address2 8</address2>
+  </contact>
+  <contact>
+    <name>oleg 9</name>
+    <lastname>ivanov 9</lastname>
+    <city>Moscow 9</city>
+    <homephone>89996663322 9</homephone>
+    <mobilephone>89996663323 9</mobilephone>
+    <workphone>89996663324 9</workphone>
+    <email1>test@test.ru 9</email1>
+    <email2>test2@test.ru 9</email2>
+    <email3>test3@test.ru 9</email3>
+    <address>address1 9</address>
+    <address2>address2 9</address2>
+  </contact>
+</list>
