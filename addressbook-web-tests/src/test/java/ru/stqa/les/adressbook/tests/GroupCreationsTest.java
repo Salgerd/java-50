@@ -22,6 +22,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class GroupCreationsTest extends TestBase {
 
+
    @DataProvider    // если читаем из csv
    public Iterator<Object[]> validGroupsFromCsv() throws IOException {
       List<Object[]> list = new ArrayList<Object[]>();
@@ -93,6 +94,7 @@ public class GroupCreationsTest extends TestBase {
       assertThat(app.group().count(), equalTo(before.size()));
       Groups after = app.group().all();
       assertThat(after, equalTo(before));
+
 
    }
 
