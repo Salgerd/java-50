@@ -42,7 +42,7 @@ public class ApplicationManager {
       properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
 
       if (Objects.equals(browser, BrowserType.FIREFOX)) {
-         wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true).setBinary("C:/Users/a.zelenskaya/Documents/firefox.exe"));
+         wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true).setBinary("web.browserPlace"));
       } else if (Objects.equals(browser, BrowserType.CHROME)) {
          wd = new ChromeDriver();
       } else if (Objects.equals(browser, BrowserType.IE)) {
