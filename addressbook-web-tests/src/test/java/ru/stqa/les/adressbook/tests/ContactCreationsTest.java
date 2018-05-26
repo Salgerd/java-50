@@ -35,15 +35,14 @@ public class ContactCreationsTest extends TestBase {
             list.add(new Object[] {new ContactData()
                     .withName(split[0])
                     .withLastname(split[1])
-                    .withCity(split[2])
-                    .withHomePhone(split[3])
-                    .withMobilePhone(split[4])
-                    .withWorkPhone(split[5])
-                    .withEmail1(split[6])
-                    .withEmail2(split[7])
-                    .withEmail3(split[8])
-                    .withAddress(split[9])
-                    .withAddress2(split[10])});
+                    .withHomePhone(split[2])
+                    .withMobilePhone(split[3])
+                    .withWorkPhone(split[4])
+                    .withEmail1(split[5])
+                    .withEmail2(split[6])
+                    .withEmail3(split[7])
+                    .withAddress(split[8])
+                    .withAddress2(split[9])});
             line = reader.readLine();
          }
          return list.iterator();
